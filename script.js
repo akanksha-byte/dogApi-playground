@@ -12,14 +12,17 @@ const dogImageDiv = document.getElementById('dogImage')
 const dogButton = document.getElementById('dogButton')
 
 // stuff you have to wait for
-const getNewDog = () =>{
-fetch('https://dog.ceo/api/breeds/image/random')
-  .then(response => response.json())
-  .then(json => {
-    // console.log('RUN 2nd', json)   
-    // console.log(json.message)
-    dogImageDiv.innerHTML = `<img src='${json.message}' height=300 width=300/'>`
-  })
+const getNewDog = () => {
+  fetch('https://dog.ceo/api/breeds/image/random')
+    .then(response => response.json())
+    .then(json => {
+      // console.log('RUN 2nd', json)
+      console.log(json.message);
+      let breed = json.message.split('/')[4]
+      console.log(breed);
+      dogImageDiv.innerHTML = `<img src='${json.message}' height=300 width=300/'><br><h2>${breed}</h2>`
+
+    })
 }
 dogButton.onclick = () => getNewDog()
 
