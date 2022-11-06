@@ -27,3 +27,5 @@ const getNewDog = () => {
 dogButton.onclick = () => getNewDog()
 
 console.log('run 3rd')
+
+// add more functionalithy of dog's api
